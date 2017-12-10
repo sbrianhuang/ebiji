@@ -3,13 +3,13 @@
 #define MAX 9
 int temp[MAX];   //记录每次选的数的位数
 int number[MAX]={1,2,3,4,5,6,7,8,9};
-int relNum[MAX];   //记录每次选的数的数
+double relNum[MAX];   //记录每次选的数的数
 
 void fun(int index,int num)      //递归到第几层了
 {
     int i,j,z,   //第几个相加的数下标
-        x,  //数分成的个数
-        sum;
+        x;  //数分成的个数
+    double sum;
     if(index>=MAX)
     {
         z=0;
@@ -18,8 +18,11 @@ void fun(int index,int num)      //递归到第几层了
             sum=0;
             for(j=0;j<temp[z];j++)
             {
+                //printf(".....%d\n", number[i+j]);
                 sum+=number[i+j]*pow(10,temp[z]-1-j);    //每个数给算出来
             }
+            //printf("-----------------%d\n", temp[z]);
+            //printf("%d\n", sum);
             relNum[z]=sum;
             z++;
             i+=j;
@@ -30,7 +33,8 @@ void fun(int index,int num)      //递归到第几层了
             sum=0;
             for(i=0;i<num;i++)
             {
-                if(i==0||j&(1<<i))
+                //printf("--------------------%d\n", i);
+                if(i==0||(j&(1<<i)))
                 {
                    sum+=relNum[i];
                 }
@@ -40,24 +44,25 @@ void fun(int index,int num)      //递归到第几层了
                 }
             }
             /************输出结果*********/
-            if(sum==100
-                &&j&1)   //判断第一个符号（1之前的）是否为+
+            if(fabs(sum-100)<=0.01
+                &&(j&1))   //判断第一个符号（1之前的）是否为+
             {
               for(i=0;i<num;i++)
               {
-                 if(i==0||j&(1<<i))
+                 if(i==0||(j&(1<<i)))
                  {
                     if(i==0)
-                        printf("%3d",relNum[i]);
+                        printf("%3.0lf",relNum[i]);
                     else
-                        printf(" +%3d",relNum[i]);
+                        printf(" +%3.0lf",relNum[i]);
                  }
                  else
                  {
-                    printf(" -%3d",relNum[i]);
+                    printf(" -%3.0lf",relNum[i]);
                  }
+
               }
-                printf("=%4d\n",sum);    //输出和
+                printf("=%4.0lf\n",sum);    //输出和
             }
         }
     }
