@@ -56,7 +56,6 @@ void fun(int index,int num)      //递归到第几层了
                  {
                     printf(" -%3d",relNum[i]);
                  }
-
               }
                 printf("=%4d\n",sum);    //输出和
             }
