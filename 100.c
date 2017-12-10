@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <math.h>
 #define MAX 9
-int temp[MAX];   //¼ÇÂ¼Ã¿´ÎÑ¡µÄÊýµÄÎ»Êý
+int temp[MAX];   //è®°å½•æ¯æ¬¡é€‰çš„æ•°çš„ä½æ•°
 int number[MAX]={1,2,3,4,5,6,7,8,9};
-int relNum[MAX];   //¼ÇÂ¼Ã¿´ÎÑ¡µÄÊýµÄÊý
+int relNum[MAX];   //è®°å½•æ¯æ¬¡é€‰çš„æ•°çš„æ•°
 
-void fun(int index,int num)      //µÝ¹éµ½µÚ¼¸²ãÁË
+void fun(int index,int num)      //é€’å½’åˆ°ç¬¬å‡ å±‚äº†
 {
-    int i,j,z,   //µÚ¼¸¸öÏà¼ÓµÄÊýÏÂ±ê
-        x,  //Êý·Ö³ÉµÄ¸öÊý
+    int i,j,z,   //ç¬¬å‡ ä¸ªç›¸åŠ çš„æ•°ä¸‹æ ‡
+        x,  //æ•°åˆ†æˆçš„ä¸ªæ•°
         sum;
     if(index>=MAX)
     {
@@ -18,7 +18,7 @@ void fun(int index,int num)      //µÝ¹éµ½µÚ¼¸²ãÁË
             sum=0;
             for(j=0;j<temp[z];j++)
             {
-                sum+=number[i+j]*pow(10,temp[z]-1-j);    //Ã¿¸öÊý¸øËã³öÀ´
+                sum+=number[i+j]*pow(10,temp[z]-1-j);    //æ¯ä¸ªæ•°ç»™ç®—å‡ºæ¥
             }
             relNum[z]=sum;
             z++;
@@ -39,9 +39,9 @@ void fun(int index,int num)      //µÝ¹éµ½µÚ¼¸²ãÁË
                    sum-=relNum[i];
                 }
             }
-            /************Êä³ö½á¹û*********/
+            /************è¾“å‡ºç»“æžœ*********/
             if(sum==100
-                &&j&1)   //ÅÐ¶ÏµÚÒ»¸ö·ûºÅ£¨1Ö®Ç°µÄ£©ÊÇ·ñÎª+
+                &&j&1)   //åˆ¤æ–­ç¬¬ä¸€ä¸ªç¬¦å·ï¼ˆ1ä¹‹å‰çš„ï¼‰æ˜¯å¦ä¸º+
             {
               for(i=0;i<num;i++)
               {
@@ -58,7 +58,7 @@ void fun(int index,int num)      //µÝ¹éµ½µÚ¼¸²ãÁË
                  }
 
               }
-                printf("=%4d\n",sum);    //Êä³öºÍ
+                printf("=%4d\n",sum);    //è¾“å‡ºå’Œ
             }
         }
     }
