@@ -1,0 +1,11 @@
+sudo apt-get install git-all
+git config --global user.name "My Name"
+git config --global user.email myEmail@example.com
+cd Desktop/git_exercise/
+git init
+git status
+git add hello.txt
+git add -A
+git commit -m "Initial commit."
+git remote add origin https://github....
+git push origin master
