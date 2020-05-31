@@ -9,3 +9,10 @@ git add -A
 git commit -m "Initial commit."
 git remote add origin https://github....
 git push origin master
+git clone https://github.com/..../.git
+git pull origin master
+git branch amazing_new_feature
+git checkout amazing_new_feature
+git merge amazing_new_feature
+git branch -d amazing_new_feature
+git log
